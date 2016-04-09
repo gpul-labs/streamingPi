@@ -1,0 +1,108 @@
+<html>
+<body>
+  <h1>Configuracion de Darkice </h1>
+  <p>Configura desde aqui los parametros de Darkice para conectarte a tu servidor de streaming Icecast 2</p>
+
+{% if currentConfig %}
+ 
+ <form action="/streamconfig/" method="post">
+    {% csrf_token %}   
+    <h2>Bitrate</h2>
+    <label>Bitrate Mode</label>
+    <select name="bitrateMode">
+      <option value="cbr">CBR</option>
+      <option value="vbr">VBR</option>
+      <option value="avr">AVR</option>
+    </select><BR>
+    <label>Bitrate</label>
+    <input type="textfield" name="bitrate" value="{{ currentConfig.bitrate }}"/><BR> 
+    <label>Format</label>
+    <input type="textfield" name="format" value="{{ currentConfig.format }}"/><BR>
+
+    <h2>Server</h2>
+    <label>Server</label>
+    <input type="textfield" name="server" value="{{ currentConfig.server }}"/><BR>
+    <label>Port</label>
+    <input type="textfield" name="port" value="{{ currentConfig.port }}"/><BR>
+    <label>Password</label>
+    <input type="textfield" name="password" value="{{ currentConfig.password }}"/><BR>
+    <label>Mount Point</label>
+    <input type="textfield" name="mountPoint" value="{{ currentConfig.mountPoint }}"/><BR>
+
+    <h2>Information</h2>
+    <label>Name</label>
+    <input type="textfield" name="name" value="{{ currentConfig.name }}"/><BR>
+    <label>Description</label>
+    <input type="textfield" name="description" value="{{ currentConfig.description }}"/><BR>
+    <label>URL</label>
+    <input type="textfield" name="url" value="{{ currentConfig.url }}"/><BR>
+    <label>Genre</label>
+    <input type="textfield" name="genre" value="{{ currentConfig.genre }}"/><BR>
+    <label>Public</label>
+    <select name="public">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select><BR>
+    <label>Local Dump File</label>
+    <input type="textfield" name="localDumpFile" value="{{ currentConfig.localDumpFile }}"/><BR>
+
+    <h2>Device</h2>
+    <label>Device</label>
+    <input type="textfield" name="device" value="{{ currentConfig.device }}"/><BR>
+    <BR>
+    <input type="submit" value="Cambiar configuracion"/>
+  </form>
+
+{% else %}
+
+ <form action="/streamconfig/" method="post">
+    {% csrf_token %}   
+    <h2>Bitrate</h2>
+    <label>Bitrate Mode</label>
+    <select name="bitrateMode">
+      <option value="cbr">CBR</option>
+      <option value="vbr">VBR</option>
+      <option value="avr">AVR</option>
+    </select><BR>
+    <label>Bitrate</label>
+    <input type="textfield" name="bitrate" value="128"/><BR> 
+    <label>Format</label>
+    <input type="textfield" name="format" value="vorbis"/><BR>
+
+    <h2>Server</h2>
+    <label>Server</label>
+    <input type="textfield" name="server" value="mystreamingserver.com"/><BR>
+    <label>Port</label>
+    <input type="textfield" name="port"  value="80"/><BR>
+    <label>Password</label>
+    <input type="textfield" name="password"  value="yourpassword"/><BR>
+    <label>Mount Point</label>
+    <input type="textfield" name="mountPoint"  value="yourmountpoint.ogg"/><BR>
+
+    <h2>Information</h2>
+    <label>Name</label>
+    <input type="textfield" name="name" value="Streaming Name"/><BR>
+    <label>Description</label>
+    <input type="textfield" name="description" value="The Streaming Description"/><BR>
+    <label>URL</label>
+    <input type="textfield" name="url" value="someurl.com"/><BR>
+    <label>Genre</label>
+    <input type="textfield" name="genre" value="music genre"/><BR>
+    <label>Public</label>
+    <select name="public">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select><BR>
+    <label>Local Dump File</label>
+    <input type="textfield" name="localDumpFile" value="dumpfile.ogg"/><BR>
+
+    <h2>Device</h2>
+    <label>Device</label>
+    <input type="textfield" name="device" value="plughw:1,0"/><BR>
+    <BR>
+    <input type="submit" value="Cambiar configuracion"/>
+  </form>
+
+{% endif %}
+  </body>
+</html>

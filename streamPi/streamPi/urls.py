@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^', include('networkConfig.urls')),
+    url(r'^', include('streamConfig.urls')),
 ]
