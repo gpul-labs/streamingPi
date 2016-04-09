@@ -32,7 +32,7 @@ def index(request):
     if (len(DarkiceConfig.objects.all())>0):
       DarkiceConfig.objects.all()[0].delete()
     # 2- Creamos la nueva y la almacenamos
-    newConfig = DarkiceConfig(bitrateMode=request.POST['bitrateMode'], bitrate=request.POST['bitrate'], format=request.POST['format'], server=request.POST['server'], port=request.POST['port'], password=request.POST['password'], mountPoint=request.POST['mountPoint'], name=request.POST['name'], description=request.POST['description'], url=request.POST['url'], genre=request.POST['genre'], public=request.POST['public'], localDumpFile=request.POST['localDumpFile'], device=request.POST['device'])
+    newConfig = DarkiceConfig(bitrateMode=request.POST['bitrateMode'], bitrate=request.POST['bitrate'], format=request.POST['format'], server=request.POST['server'], port=request.POST['port'], password=request.POST['password'], mountPoint=request.POST['mountPoint'], name=request.POST['name'], description=request.POST['description'], url=request.POST['url'], genre=request.POST['genre'], public=request.POST['public'], localDumpFile='/home/pi/backup-streaming/dumpfile.ogg', device=request.POST['device'])
     newConfig.save()
 
     # Y ahora generamos el fichero darkice.cfg y lo guardamos
@@ -88,9 +88,6 @@ def getPagePost(request):
     page += "<b>Public: </b>"
     page += request.POST['public']
     page += "<BR>"
-    page += "<b>Local Dump File: </b>"
-    page += request.POST['localDumpFile']
-    page += "<BR>"
     page += "<b>Device: </b>"
     page += request.POST['device']
     page += "<BR><BR><i>Los cambios han sido guardados</i>"
@@ -133,7 +130,7 @@ description     = """+request.POST['description']+"""   # description of the str
 url             = """+request.POST['url']+"""   # URL related to the stream
 genre           = """+request.POST['genre']+"""     # genre of the stream
 public          = """+request.POST['public']+"""       # advertise this stream?
-localDumpFile   = """+request.POST['localDumpFile']+"""  # local dump file"""
+localDumpFile   = /home/pi/backup-streaming/dumpfile.ogg  # local dump file"""
 
   return config
 

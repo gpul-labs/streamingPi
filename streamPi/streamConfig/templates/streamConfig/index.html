@@ -43,8 +43,6 @@
       <option value="yes">Yes</option>
       <option value="no">No</option>
     </select><BR>
-    <label>Local Dump File</label>
-    <input type="textfield" name="localDumpFile" value="{{ currentConfig.localDumpFile }}"/><BR>
 
     <h2>Device</h2>
     <label>Device</label>
@@ -93,8 +91,6 @@
       <option value="yes">Yes</option>
       <option value="no">No</option>
     </select><BR>
-    <label>Local Dump File</label>
-    <input type="textfield" name="localDumpFile" value="dumpfile.ogg"/><BR>
 
     <h2>Device</h2>
     <label>Device</label>
@@ -104,5 +100,10 @@
   </form>
 
 {% endif %}
+    <BR>
+    {% load staticfiles %}
+    <a href="{% static "streamConfig/dumpfile.ogg" %}">Get Dump File</a><BR>
+
+
   </body>
 </html>
