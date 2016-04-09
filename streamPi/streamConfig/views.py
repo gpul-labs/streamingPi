@@ -20,6 +20,9 @@ from django.http import HttpResponse
 from streamConfig.models import DarkiceConfig
 import os
 
+def main(request):
+  return HttpResponse('<a href="/streamconfig">Configurar Darkice</a><BR><a href="/admin">Configurar wifi</a>')
+
 def index(request):
   # En caso de que haya llegado un POST, significa que quieren cambiar la configuracion
   if request.POST.has_key('server'):
