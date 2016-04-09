@@ -80,6 +80,8 @@ class Network(models.Model):
     def save(self, *args, **kwargs):
         if not self.uuid:
             self.uuid = uuid.uuid4()
+        if not self.fileName:
+            self.fileName = self.generateFileName()
         self.writeFile()
         super(Network, self).save(*args, **kwargs)
 
