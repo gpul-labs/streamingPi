@@ -133,7 +133,9 @@ description     = """+request.POST['description']+"""   # description of the str
 url             = """+request.POST['url']+"""   # URL related to the stream
 genre           = """+request.POST['genre']+"""     # genre of the stream
 public          = """+request.POST['public']+"""       # advertise this stream?
-localDumpFile   = /home/pi/backup-streaming/dumpfile.ogg  # local dump file"""
+localDumpFile   = /home/pi/backup-streaming/dumpfile.ogg  # local dump file
+
+"""
 
   return config
 
